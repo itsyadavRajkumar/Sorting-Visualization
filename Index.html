@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Sorting Visualizer</title>
+	<link href="Index.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="flex" style="height:auto ">
+		<div class="nav">
+			<section class="head">Sorting Visualizer</section>
+		</div>
+
+		<div class="buttons">
+			<button type="button" class="btn1" onclick="randomNumber()">Random Number</button>
+			<button class="btn1" onclick="handleAdd()" id="Button1">
+				Generate Bar</button>
+
+			<!-- "Selection Sort" button -->
+			<button class="btn2" onclick="SelectionSort()" id="Button2">
+				Selection Sort</button>
+
+			<!-- "Bubble Sort" button -->
+			<button class="btn3" onclick="BubbleSort()" id="Button3">
+				Bubble Sort</button>
+
+			<!-- "Insertion Sort" button -->
+			<button class="btn4" onclick="InsertionSort()" id="Button4">
+				Insertion Sort</button>
+
+			<!-- "Merge Sort" button -->
+			<!-- <button class="btn5" onclick="MergeSort()" id="Button5">
+				Merge Sort</button> -->
+
+			<!-- "Quick Sort" button -->
+			<!-- <button class="btn6" onclick="QuickSort()" id="Button6">
+				Quick Sort</button> -->
+
+			<!-- "Heap Sort" button -->
+			<!-- <button class="btn7" onclick="CountingSort()" id="Button7">
+				Counting Sort</button> -->
+		</div>
+
+
+		<div class="container">
+			<div class="flex1">
+				<div class=" flex data-container" style="width: 100%;">
+					<div class="inputValue">
+						<label for="Inputbox" class="labelValue">Values:</label>
+						<input type="text" value="" id="inputBox" name="text">
+						<br>
+					</div>
+				</div>
+			</div>
+			<div class="flex2">
+
+				<div class="speed">
+					<!-- <p>Speed Controller</p> -->
+					<button class="speedc" onclick="speedi()"> <b> Increment </b> </button>
+					<button class="speedc" onclick="speedd()"> <b> Decrement </b> </button>
+					<button class="speedc" id="pause" onclick="pause()"> <b> Pause </b> </button>
+				</div>
+				<p id="forLoop" style="font-weight:normal"> for i: <b> <span id="iVal"> </span></b> to N: <b><span
+							id="nVal"> </span> </b></p> <br>
+				<p id="ifCondition" style="font-weight:normal">
+					if leftElement: <b> <span id="yVal"> </span> </b> > rightElement: <b> <span id="xVal"></span></b>
+					<br>
+					swap(leftElement with index: <b><span id="xIdx"></span></b>, rightElement with index: <b><span
+							id="yIdx"></span></b>)
+				</p> <br>
+				<p id="NoSwap" style="font-weight:normal"> else NoSwap </p>
+				</p>
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+<!-- linking index.js -->
+<script src="Index.js"></script>
+
+</html>
