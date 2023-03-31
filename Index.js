@@ -196,7 +196,7 @@ async function InsertionSort() {
 			No_Of_Swap++;
 			document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 			No_Of_Comparisons++;
-			document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
+			document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
 			await new Promise((resolve) =>
 				setTimeout(() => {
 					resolve();
