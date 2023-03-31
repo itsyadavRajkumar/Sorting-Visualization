@@ -97,6 +97,8 @@ function GenerateBar(val) {
 
 async function SelectionSort() {
 	let No_Of_Swap = 0, No_Of_Comparisons = 0;
+	document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
+	document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 	let bars = document.querySelectorAll(".bar");
 	let n = bars.length;
 	document.getElementById("nVal").innerHTML = n;
@@ -163,6 +165,8 @@ async function SelectionSort() {
 
 async function InsertionSort() {
 	let No_Of_Comparisons = 0, No_Of_Swap = 0;
+	document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
+	document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
 	let bars = document.querySelectorAll(".bar");
 	let n = bars.length;
 	document.getElementById("nVal").innerHTML = n;
@@ -223,6 +227,8 @@ async function InsertionSort() {
 
 async function BubbleSort() {
 	let No_Of_Swap = 0, No_Of_Comparisons = 0;
+	document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
+	document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 	let bars = document.querySelectorAll(".bar");
 	let n = bars.length;
 	document.getElementById("nVal").innerHTML = n;
