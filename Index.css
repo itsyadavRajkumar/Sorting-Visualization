@@ -33,7 +33,6 @@
 	justify-content: center;
 	width: 100%;
 	height: auto;
-
 }
 
 .bar {
@@ -160,10 +159,6 @@
 	cursor: pointer;
 }
 
-
-
-
-
 .header {
 	font-size: 20px;
 	text-align: center;
@@ -235,10 +230,11 @@
 	height: 400px;
 	margin-top: 300px;
 	/* position: fixed; */
+	font-weight: normal;
 }
 
 .flex2 p {
-
+	
 	font-weight: bolder;
 }
 
@@ -250,17 +246,37 @@
 	border-radius: 20px;
 	margin-top: 3px;
 	/* justify-items: center; */
-	background-color:mintcream;
+	background-color: mintcream;
 }
 
 .speed {
 	/* margin-bottom: 100px; */
 	/* margin-top: 10px; */
 	justify-content: center;
-	top: 148px;
+	top: 20%;
 	position: fixed;
 }
 
 #forLoop {
 	font-style: italic;
+}
+
+#No_Of_Comparisons {
+	/* background-color: lightGreen; */
+}
+
+#No_Of_Swap {
+	/* background-color: lightGreen; */
+}
+
+.SwapAndCom {
+	background-color:lightgreen;
+	top: 50%;
+	position: fixed;
+	font-size: medium;
+}
+
+.ConditionalStatement {
+	bottom: 10%;
+	position: fixed;
 }

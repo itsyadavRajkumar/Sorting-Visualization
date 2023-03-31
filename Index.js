@@ -1,24 +1,25 @@
 const container = document.querySelector(".data-container");
 let MyArray = [];
 let delayPromise = 700;
-let pspeed = 0;
-function speedi() {
+let PointerSpeed = 0;
+
+function SpeedIncrement() {
 	delayPromise = delayPromise - 100;
 }
-function speedd() {
+function SpeedDecrement() {
 	delayPromise = delayPromise + 100;
 }
 function pause() {
 
-	if (pspeed == 0) {
-		pspeed = delayPromise;
+	if (PointerSpeed == 0) {
+		PointerSpeed = delayPromise;
 		delayPromise = 5000;
 		document.getElementById('pause').innerHTML = "<b> Resume </b>";
 	}
 	else {
-		delayPromise = pspeed;
+		delayPromise = PointerSpeed;
 		document.getElementById('pause').innerHTML = "<b> Pause </b>";
-		pspeed = 0;
+		PointerSpeed = 0;
 	}
 }
 
@@ -95,7 +96,7 @@ function GenerateBar(val) {
 }
 
 async function SelectionSort() {
-
+	let No_Of_Swap = 0, No_Of_Comparisons = 0;
 	let bars = document.querySelectorAll(".bar");
 	let n = bars.length;
 	document.getElementById("nVal").innerHTML = n;
@@ -118,6 +119,8 @@ async function SelectionSort() {
 			var val1 = parseInt(bars[j].childNodes[0].innerHTML);
 			var val2 = parseInt(bars[min_idx].childNodes[0].innerHTML);
 			document.getElementById("forLoop").style.backgroundColor = "rgb(255, 235, 211, 0)";
+			No_Of_Comparisons++;
+			document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
 			if (val1 < val2) {
 				if (min_idx !== i) {
 					bars[min_idx].style.backgroundColor = " rgb(24, 190, 255)";
@@ -138,7 +141,8 @@ async function SelectionSort() {
 			}
 			// document.getElementById("ifCondition").style.backgroundColor = "rgb(255, 235, 211, 0)";
 		}
-
+		No_Of_Swap++;
+		document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 		var temp1 = bars[min_idx].style.height;
 		var temp2 = bars[min_idx].childNodes[0].innerText;
 		bars[min_idx].style.height = bars[i].style.height;
@@ -158,6 +162,7 @@ async function SelectionSort() {
 }
 
 async function InsertionSort() {
+	let No_Of_Comparisons = 0, No_Of_Swap = 0;
 	let bars = document.querySelectorAll(".bar");
 	let n = bars.length;
 	document.getElementById("nVal").innerHTML = n;
@@ -177,11 +182,17 @@ async function InsertionSort() {
 		document.getElementById("ifCondition").style.backgroundColor = "rgb(255, 235, 211, 0)";
 		document.getElementById("NoSwap").style.backgroundColor = "rgb(255, 235, 211, 0)";
 		document.getElementById("yIdx").innerHTML = j;
+		No_Of_Comparisons++;
+		document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 		while (j >= 0 && val1 < parseInt(bars[j].childNodes[0].innerText)) {
 			bars[j].style.backgroundColor = "yellow";
 			document.getElementById("forLoop").style.backgroundColor = "rgb(255, 235, 211, 0)";
 			bars[j + 1].childNodes[0].innerText = parseInt(bars[j].childNodes[0].innerText);
 			bars[j + 1].style.height = bars[j].style.height;
+			No_Of_Swap++;
+			document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
+			No_Of_Comparisons++;
+			document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 			await new Promise((resolve) =>
 				setTimeout(() => {
 					resolve();
@@ -196,6 +207,8 @@ async function InsertionSort() {
 		for (let k = 0; k <= i; ++k) {
 			bars[k].style.backgroundColor = "lightGreen";
 		}
+		No_Of_Swap++;
+		document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 		bars[j + 1].childNodes[0].innerText = val1;
 		bars[j + 1].style.height = height;
 		await new Promise((resolve) =>
@@ -209,6 +222,7 @@ async function InsertionSort() {
 
 
 async function BubbleSort() {
+	let No_Of_Swap = 0, No_Of_Comparisons = 0;
 	let bars = document.querySelectorAll(".bar");
 	let n = bars.length;
 	document.getElementById("nVal").innerHTML = n;
@@ -230,7 +244,9 @@ async function BubbleSort() {
 				}, delayPromise)
 			);
 			document.getElementById("forLoop").style.backgroundColor = "rgb(255, 235, 211, 0)";
-			
+			No_Of_Comparisons += 1;
+			document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
+
 			let val1 = parseInt(bars[j].childNodes[0].innerText);
 			let val2 = parseInt(bars[j + 1].childNodes[0].innerText);
 			if (val1 > val2) {
@@ -243,6 +259,8 @@ async function BubbleSort() {
 				bars[j].style.backgroundColor = bars[j + 1].style.backgroundColor;
 				bars[j + 1].style.backgroundColor = y;
 				bars[j + 1].childNodes[0].innerHTML = x;
+				No_Of_Swap++;
+				document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 				await new Promise((resolve) =>
 					setTimeout(() => {
 						resolve();
