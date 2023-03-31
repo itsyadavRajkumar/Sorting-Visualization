@@ -187,7 +187,7 @@ async function InsertionSort() {
 		document.getElementById("NoSwap").style.backgroundColor = "rgb(255, 235, 211, 0)";
 		document.getElementById("yIdx").innerHTML = j;
 		No_Of_Comparisons++;
-		document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
+		document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
 		while (j >= 0 && val1 < parseInt(bars[j].childNodes[0].innerText)) {
 			bars[j].style.backgroundColor = "yellow";
 			document.getElementById("forLoop").style.backgroundColor = "rgb(255, 235, 211, 0)";
