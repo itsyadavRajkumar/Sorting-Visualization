@@ -1,21 +1,21 @@
 * {
 	margin: 0px;
 	padding: 0px;
+	background-color: rgb(255, 235, 211, 0);
+	font-family: Verdana, sans-serif;
 	box-sizing: border-box;
-	overflow: hidden;
+	
+}
+
+.container{
+	overflow: auto;
+	height: auto;
 }
 
 .mySlides {
 	display: none;
 }
 
-* {
-	padding: 0;
-	margin: 0;
-	background-color: rgb(255, 235, 211, 0);
-	font-family: Verdana, sans-serif;
-
-}
 
 .head {
 	margin-top: 20px;
@@ -44,11 +44,6 @@
 	font-weight: 800;
 	position: relative;
 	background-color: rgb(0, 183, 255);
-	/* texttransition: 0.2s all ease;
-	-webkit-transition: 0.2s all ease;
-	-moz-transition: 0.2s all ease;
-	-ms-transition: 0.2s all ease;
-	-o-transition: 0.2s all ease; */
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	-ms-border-radius: 8px;
@@ -68,8 +63,8 @@
 
 .buttons {
 
-	display: flex;
-	height: 10vh;
+	display:flex;
+	flex-wrap: wrap;
 	width: 100%;
 	justify-content: center;
 }
@@ -87,77 +82,6 @@
 
 }
 
-.btn2 {
-	margin: 10px;
-	padding: 12px;
-	font-weight: bolder;
-	background-color: #d1549ced;
-	border-radius: 10px;
-	color: white;
-	font-size: 16px;
-	border: white;
-	cursor: pointer;
-}
-
-.btn3 {
-	margin: 10px;
-	padding: 12px;
-	font-weight: bolder;
-	background-color: #d1549ced;
-	border-radius: 10px;
-	color: white;
-	font-size: 16px;
-	border: white;
-	cursor: pointer;
-}
-
-.btn4 {
-	margin: 10px;
-	padding: 12px;
-	font-weight: bolder;
-	background-color: #d1549ced;
-	border-radius: 10px;
-	color: white;
-	font-size: 16px;
-	border: white;
-	cursor: pointer;
-}
-
-.btn5 {
-	margin: 10px;
-	padding: 12px;
-	font-weight: bolder;
-	background-color: #d1549ced;
-	border-radius: 10px;
-	color: white;
-	font-size: 16px;
-	border: white;
-	cursor: pointer;
-}
-
-.btn6 {
-	margin: 10px;
-	padding: 12px;
-	font-weight: bolder;
-	background-color: #d1549ced;
-	border-radius: 10px;
-	color: white;
-	font-size: 16px;
-	border: white;
-	cursor: pointer;
-}
-
-.btn7 {
-	margin: 10px;
-	padding: 12px;
-	font-weight: bolder;
-	background-color: #d1549ced;
-	border-radius: 10px;
-	color: white;
-	font-size: 16px;
-	border: white;
-	cursor: pointer;
-}
 
 .header {
 	font-size: 20px;
@@ -211,31 +135,25 @@
 	text-overflow: clip;
 }
 
-.container {
+.row {
 	display: flex;
+	flex-wrap: wrap;
+}
+.column {
+	flex: 50%;
+	padding: 20px;
 }
 
-.flex1 {
-	/* background-color: red; */
-	width: 60%;
-	height: 400px;
+@media screen and (max-width: 992px) {
+	.column {
+	  flex: 50%;
+	}
 }
-
-.flex2 {
-	padding-bottom: 30px;
-	padding-top: 100px;
-	padding-left: 20px;
-	/* background-color:ghostwhite; */
-	width: 40%;
-	height: 400px;
-	margin-top: 300px;
-	/* position: fixed; */
-	font-weight: normal;
-}
-
-.flex2 p {
-	
-	font-weight: bolder;
+  
+@media screen and (max-width: 600px) {
+	.row {
+	  flex-direction: column;
+	}
 }
 
 .speedc {
@@ -244,39 +162,18 @@
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 20px;
-	margin-top: 3px;
-	/* justify-items: center; */
+	grid-auto-rows: 0%;
 	background-color: mintcream;
-}
-
-.speed {
-	/* margin-bottom: 100px; */
-	/* margin-top: 10px; */
-	justify-content: center;
-	top: 20%;
-	position: fixed;
 }
 
 #forLoop {
 	font-style: italic;
-}
-
-#No_Of_Comparisons {
-	/* background-color: lightGreen; */
-}
-
-#No_Of_Swap {
-	/* background-color: lightGreen; */
+	margin-top: 10px;
 }
 
 .SwapAndCom {
 	background-color:lightgreen;
-	top: 50%;
-	position: fixed;
 	font-size: medium;
+	margin-top: 10px;
 }
 
-.ConditionalStatement {
-	bottom: 10%;
-	position: fixed;
-}
