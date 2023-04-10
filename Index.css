@@ -4,7 +4,6 @@
 	background-color: rgb(255, 235, 211, 0);
 	font-family: Verdana, sans-serif;
 	box-sizing: border-box;
-	
 }
 
 .container{
@@ -15,7 +14,6 @@
 .mySlides {
 	display: none;
 }
-
 
 .head {
 	margin-top: 20px;
@@ -96,15 +94,6 @@
 .header {
 	font-size: 20px;
 	text-align: center;
-}
-
-#array {
-	background-color: white;
-	height: 413px;
-	width: 598px;
-	margin: auto;
-	position: relative;
-	margin-top: 64px;
 }
 
 .block {

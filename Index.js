@@ -410,6 +410,75 @@ async function mergeSort() {
 	}
 }
 
+
+// Quick Sort
+async function Partition(bars, l, r) {
+	var pivot = Number(bars[r].childNodes[0].innerHTML);
+	var i = l - 1;
+	bars[r].style.backgroundColor = "red";
+	for (var j = l; j <= r - 1; j++) {
+		bars[j].style.backgroundColor = "yellow";
+		await new Promise((resolve) =>
+			setTimeout(() => {
+				resolve();
+			}, delayPromise)
+		);
+		var value = Number(bars[j].childNodes[0].innerHTML);
+		if (value < pivot) {
+			i++;
+			var temp1 = bars[i].style.height;
+			var temp2 = bars[i].childNodes[0].innerText;
+			bars[i].style.height = bars[j].style.height;
+			bars[j].style.height = temp1;
+			bars[i].childNodes[0].innerText = bars[j].childNodes[0].innerText;
+			bars[j].childNodes[0].innerText = temp2;
+			bars[i].style.backgroundColor = "blue";
+			if (i != j) bars[j].style.backgroundColor = "pink";
+			await new Promise((resolve) =>
+				setTimeout(() => {
+					resolve();
+				}, delayPromise)
+			);
+		} else bars[j].style.backgroundColor = "pink";
+	}
+	i++;
+	var temp1 = bars[i].style.height;
+	var temp2 = bars[i].childNodes[0].innerText;
+	bars[i].style.height = bars[r].style.height;
+	bars[r].style.height = temp1;
+	bars[i].childNodes[0].innerText = bars[r].childNodes[0].innerText;
+	bars[r].childNodes[0].innerText = temp2;
+	bars[r].style.backgroundColor = "pink";
+	bars[i].style.backgroundColor = "#6b5b95";
+
+	await new Promise((resolve) =>
+		setTimeout(() => {
+			resolve();
+		}, delayPromise * 3)
+	);
+	for (var k = 0; k < bars.length; k++)
+		bars[k].style.backgroundColor = "lightGreen";
+	return i;
+}
+
+async function Quick_Sort(bars, l, r) {
+	if (l >= r) return;
+	var pivot_idx = await Partition(bars, l, r);
+	await Quick_Sort(bars, l, pivot_idx - 1);
+	await Quick_Sort(bars, pivot_idx + 1, r);
+}
+
+function QuickSort() {
+	let No_Of_Swap = 0, No_Of_Comparisons = 0;
+	document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
+	document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
+	let bars = document.querySelectorAll(".bar");
+	let n = bars.length;
+	document.getElementById("nVal").innerHTML = n;
+	document.getElementById("forLoop").style.backgroundColor = "lightGreen";
+	Quick_Sort(bars, 0, n - 1);
+}
+
 function AnimationValue(i, j, x, y) {
 	document.getElementById("xVal").innerHTML = x;
 	document.getElementById("yVal").innerHTML = y;
