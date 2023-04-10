@@ -79,9 +79,19 @@
 	font-size: 16px;
 	border: white;
 	cursor: pointer;
-
 }
 
+.btn {
+	margin: 10px;
+	padding: 12px;
+	font-weight: bolder;
+	background-color: #686feded;
+	border-radius: 10px;
+	color: white;
+	font-size: 16px;
+	border: white;
+	cursor: pointer;
+}
 
 .header {
 	font-size: 20px;
@@ -176,4 +186,3 @@
 	font-size: medium;
 	margin-top: 10px;
 }
-

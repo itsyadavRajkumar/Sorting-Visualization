@@ -61,6 +61,11 @@ async function handleAdd() {
 	}
 	document.getElementById('inputBox').value = `${MyArray}`;
 	// removeBarData()
+	const container = document.querySelector(".bar");
+	let bars = document.querySelectorAll(".bar");
+	for (let i = 0; i < bars.length; ++i) {
+		bars[i].style.backgroundColor = "rgb(0, 183, 255)";
+	}
 }
 
 async function removeBarData() {
@@ -73,7 +78,7 @@ async function removeBarData() {
 
 	const container = document.querySelector(".bar");
 	let bars = document.querySelectorAll(".bar");
-	console.log(bars)
+	// console.log(bars)
 	for (var i = 0; i < bars.length; i += 1) {
 		// Remove all child elements of the container
 		// while (container.firstChild) {
@@ -96,11 +101,14 @@ function GenerateBar(val) {
 }
 
 async function SelectionSort() {
+	let bars = document.querySelectorAll(".bar");
+	let n = bars.length;
+	for (let i = 0; i < bars.length; ++i) {
+		bars[i].style.backgroundColor = "rgb(0, 183, 255)";
+	}
 	let No_Of_Swap = 0, No_Of_Comparisons = 0;
 	document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
 	document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
-	let bars = document.querySelectorAll(".bar");
-	let n = bars.length;
 	document.getElementById("nVal").innerHTML = n;
 	document.getElementById("forLoop").style.backgroundColor = "lightGreen";
 	for (var i = 0; i < n; ++i) {
@@ -169,6 +177,9 @@ async function InsertionSort() {
 	document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
 	let bars = document.querySelectorAll(".bar");
 	let n = bars.length;
+	for (let i = 0; i < bars.length; ++i) {
+		bars[i].style.backgroundColor = "rgb(0, 183, 255)";
+	}
 	document.getElementById("nVal").innerHTML = n;
 	document.getElementById("forLoop").style.backgroundColor = "lightGreen";
 	for (var i = 1; i < n; ++i) {
@@ -224,13 +235,15 @@ async function InsertionSort() {
 	}
 }
 
-
 async function BubbleSort() {
 	let No_Of_Swap = 0, No_Of_Comparisons = 0;
 	document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
 	document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
 	let bars = document.querySelectorAll(".bar");
 	let n = bars.length;
+	for (let i = 0; i < bars.length; ++i) {
+		bars[i].style.backgroundColor = "rgb(0, 183, 255)";
+	}
 	document.getElementById("nVal").innerHTML = n;
 	document.getElementById("forLoop").style.backgroundColor = "lightGreen";
 	for (var i = 0; i < n; ++i) {
@@ -293,6 +306,107 @@ async function BubbleSort() {
 		document.getElementById("forLoop").style.backgroundColor = "lightGreen";
 		bars[i].style.backgroundColor = " rgb(49, 226, 13)";
 		bars[n - i - 1].style.backgroundColor = "lightGreen";
+	}
+}
+
+async function merge(bars, l, m, r) {
+	var n1 = m - l + 1;
+	var n2 = r - m;
+	var L = new Array(n1);
+	var R = new Array(n2);
+	for (let i = 0; i < n1; ++i) {
+		L[i] = parseInt(bars[l + i].childNodes[0].innerHTML);
+		GenerateBar(L[i]);
+	}
+	for (let i = 0; i < n2; ++i) {
+		R[i] = parseInt(bars[m + 1 + i].childNodes[0].innerHTML);
+		GenerateBar(R[i]);
+	}
+	var i = 0, j = 0, k = l;
+
+	while (i < n1 && j < n2) {
+		if (L[i] <= R[j]) {
+			bars[k] = L[i];
+
+			i++;
+		}
+		else {
+			bars[k] = R[j];
+			j++;
+		}
+		k++;
+	}
+
+	while (i < n1) {
+		bars[k] = L[i];
+		i++, k++;
+	}
+
+	while (j < n2) {
+		bars[k] = R[j];
+		j++, k++;
+	}
+}
+
+async function MergeSort(bars, l, r) {
+	if (l >= r) return;
+	let mid = l + parseInt((r - l) / 2);
+	await new Promise((resolve) =>
+		setTimeout(() => {
+			resolve();
+		}, delayPromise)
+	);
+	for (let i = l; i <= mid; ++i) {
+		bars[i].style.backgroundColor = "Yellow";
+	}
+	await new Promise((resolve) =>
+		setTimeout(() => {
+			resolve();
+		}, delayPromise)
+	);
+	for (let i = mid + 1; i <= r; ++i) {
+		bars[i].style.backgroundColor = 'Red';
+	}
+	await new Promise((resolve) =>
+		setTimeout(() => {
+			resolve();
+		}, delayPromise)
+	);
+	MergeSort(bars, l, mid);
+	await new Promise((resolve) =>
+		setTimeout(() => {
+			resolve();
+		}, delayPromise)
+	);
+	// for (let i = mid + 1; i < r; ++i) {
+	// 	bars[i].style.backgroundColor = 'lightBlue';
+	// }
+	MergeSort(bars, mid + 1, r);
+	await new Promise((resolve) =>
+		setTimeout(() => {
+			resolve();
+		}, delayPromise)
+	);
+	merge(bars, l, mid, r);
+	await new Promise((resolve) =>
+		setTimeout(() => {
+			resolve();
+		}, delayPromise)
+	);
+}
+
+async function mergeSort() {
+	let No_Of_Swap = 0, No_Of_Comparisons = 0;
+	document.getElementById("TotalComparisons").innerHTML = No_Of_Comparisons;
+	document.getElementById("TotalSwap").innerHTML = No_Of_Swap;
+	let bars = document.querySelectorAll(".bar");
+	let n = bars.length;
+	document.getElementById("nVal").innerHTML = n;
+	document.getElementById("forLoop").style.backgroundColor = "lightGreen";
+	MergeSort(bars, 0, n - 1);
+	for (let i = 0; i < n; ++i) {
+		bars[i].style.backgroundColor = " rgb(49, 226, 13)";
+		// bars[n - i - 1].style.backgroundColor = "lightGreen";
 	}
 }
 
