@@ -456,8 +456,8 @@ async function Partition(bars, l, r) {
 			resolve();
 		}, delayPromise * 3)
 	);
-	for (var k = 0; k < bars.length; k++)
-		bars[k].style.backgroundColor = "lightGreen";
+	// for (var k = 0; k < bars.length; k++)
+	// 	bars[k].style.backgroundColor = "lightGreen";
 	return i;
 }
 
